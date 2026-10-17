@@ -46,8 +46,8 @@ The pipeline reads `kestrel-telemetry-pack-v1` (the unzipped pack, nine files). 
 Clone the repository (about 150 MB, the telemetry pack is included), then start the stack from `M1/`:
 
 ```bash
-git clone https://github.com/nmohey/mnf_agents.git        # or the repository URL you were given
-cd mnf_agents/M1
+git clone https://github.com/nmohey/dataeng.git
+cd dataeng/M1
 cp .env.example .env          # optional: change ports or RAW_DIR
 docker compose up -d --build
 ```
@@ -71,7 +71,7 @@ docker compose down                           # stop; add -v to drop the databas
 ### 2. On a laptop (Python 3.12+, no Docker needed for the pipeline itself)
 
 ```bash
-git clone https://github.com/nmohey/mnf_agents.git && cd mnf_agents/M1
+git clone https://github.com/nmohey/dataeng.git && cd dataeng/M1
 python3 -m venv .venv && source .venv/bin/activate      # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 python -m kestrel_m1.pipeline                           # ~1 minute; writes data/curated/
