@@ -1,6 +1,6 @@
 # Kestrel · Milestone 1 — Sources, Containers, Cleaning
 
-Data Engineering · Winter 2026 · Team: _add team name and members here_
+Data Engineering · Winter 2026 · Team: mnf
 
 Pipeline stages 1 and 2 of the Kestrel rogue-agent data platform: **ingest and normalise** nine files in four formats and three clocks, then **clean and integrate** them into one canonical activity table you can trust, with every rejected record carrying one reason from the closed enum and a pointer back to its source.
 
