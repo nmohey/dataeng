@@ -43,8 +43,11 @@ The pipeline reads `kestrel-telemetry-pack-v1` (the unzipped pack, nine files). 
 
 ### 1. With Docker (the reproducible way)
 
+Clone the repository (about 150 MB, the telemetry pack is included), then start the stack from `M1/`:
+
 ```bash
-cd M1
+git clone https://github.com/nmohey/mnf_agents.git        # or the repository URL you were given
+cd mnf_agents/M1
 cp .env.example .env          # optional: change ports or RAW_DIR
 docker compose up -d --build
 ```
@@ -55,7 +58,7 @@ What happens: PostgreSQL 17 starts and becomes healthy, Adminer starts, and the 
 docker compose logs -f pipeline
 ```
 
-It takes about a minute. Then open Adminer at <http://localhost:8080> (server `postgres`, user `kestrel`, password `kestrel`, database `kestrel`) and find `canonical_activity`, `fact_rejected_record`, the `dim_*` tables, `siem_flow_correlation`, `m1_sessions` and `m1_metrics`.
+The pipeline job takes one to three minutes (the first run also pulls the images). Then open Adminer at <http://localhost:8080> (server `postgres`, user `kestrel`, password `kestrel`, database `kestrel`) and find `canonical_activity`, `fact_rejected_record`, the `dim_*` tables, `siem_flow_correlation`, `m1_sessions` and `m1_metrics`.
 
 Re-run the pipeline by hand, or run the notebooks inside the stack:
 
@@ -68,7 +71,7 @@ docker compose down                           # stop; add -v to drop the databas
 ### 2. On a laptop (Python 3.12+, no Docker needed for the pipeline itself)
 
 ```bash
-cd M1
+git clone https://github.com/nmohey/mnf_agents.git && cd mnf_agents/M1
 python3 -m venv .venv && source .venv/bin/activate      # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 python -m kestrel_m1.pipeline                           # ~1 minute; writes data/curated/
