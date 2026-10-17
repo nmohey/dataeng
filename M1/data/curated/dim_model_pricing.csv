@@ -1,0 +1,6 @@
+source_file,source_line,model_id,model_family,input_price_per_1k,output_price_per_1k,currency,effective_from,effective_to,effective_from_utc,effective_to_utc,quality_flags
+model_pricing.csv,5,mdl_kst_lite_1,kestrel-lite,0.0005,0.0015,USD,2026-01-01T00:00:00Z,,2026-01-01 00:00:00+00:00,,
+model_pricing.csv,6,mdl_kst_nano_1,kestrel-nano,,,USD,2026-02-01T00:00:00Z,,2026-02-01 00:00:00+00:00,,price_missing
+model_pricing.csv,2,mdl_kst_pro_1,kestrel-pro,0.003,0.015,USD,2026-01-01T00:00:00Z,,2026-01-01 00:00:00+00:00,2026-03-01 00:00:00+00:00,open_window_closed_at_next_effective_from
+model_pricing.csv,3,mdl_kst_pro_1,kestrel-pro,0.0025,0.012,USD,2026-03-01T00:00:00Z,,2026-03-01 00:00:00+00:00,,
+model_pricing.csv,4,mdl_kst_pro_2,kestrel-pro,0.002,0.01,USD,2026-03-01T00:00:00Z,,2026-03-01 00:00:00+00:00,,

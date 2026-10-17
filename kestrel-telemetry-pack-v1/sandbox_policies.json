@@ -1,0 +1,354 @@
+[
+  {
+    "sandbox_profile_id": "sp_research_std",
+    "policy_version": 2,
+    "valid_from": "2026-01-01T00:00:00Z",
+    "valid_to": "2026-02-01T00:00:00Z",
+    "allowed_tools": [
+      "tl_web_fetch",
+      "tl_vector_search"
+    ],
+    "network": {
+      "egress_allowlist": [
+        "api.kestrel.ai",
+        "*.public-data.example"
+      ],
+      "denied_ports": [
+        22,
+        23,
+        445,
+        3389
+      ],
+      "max_egress_mb": 25
+    },
+    "filesystem": {
+      "read_scope": [
+        "/workspace"
+      ],
+      "write_scope": [
+        "/workspace/out"
+      ]
+    },
+    "resources": {
+      "max_runtime_s": 600,
+      "max_memory_mb": 1024
+    },
+    "escalation_allowed": false
+  },
+  {
+    "sandbox_profile_id": "sp_research_std",
+    "policy_version": 3,
+    "valid_from": "2026-01-25T00:00:00Z",
+    "valid_to": null,
+    "allowed_tools": [
+      "tl_web_fetch",
+      "tl_vector_search",
+      "tl_summarize"
+    ],
+    "network": {
+      "egress_allowlist": [
+        "api.kestrel.ai",
+        "*.public-data.example",
+        "research.marketwire.example"
+      ],
+      "denied_ports": [
+        22,
+        23,
+        445,
+        3389
+      ],
+      "max_egress_mb": 50
+    },
+    "filesystem": {
+      "read_scope": [
+        "/workspace"
+      ],
+      "write_scope": [
+        "/workspace/out"
+      ]
+    },
+    "resources": {
+      "max_runtime_s": 900,
+      "max_memory_mb": 2048
+    },
+    "escalation_allowed": false
+  },
+  {
+    "sandbox_profile_id": "sp_support_std",
+    "policy_version": 1,
+    "valid_from": "2026-01-01T00:00:00Z",
+    "valid_to": "2026-03-01T00:00:00Z",
+    "allowed_tools": [
+      "tl_vector_search",
+      "tl_send_email",
+      "tl_summarize"
+    ],
+    "network": {
+      "egress_allowlist": [
+        "api.kestrel.ai",
+        "mail.kestrel.ai"
+      ],
+      "denied_ports": [
+        22,
+        445
+      ],
+      "max_egress_mb": 10
+    },
+    "filesystem": {
+      "read_scope": [
+        "/workspace"
+      ],
+      "write_scope": []
+    },
+    "resources": {
+      "max_runtime_s": 300,
+      "max_memory_mb": 512
+    },
+    "escalation_allowed": false
+  },
+  {
+    "sandbox_profile_id": "sp_support_std",
+    "policy_version": 2,
+    "valid_from": "2026-03-01T00:00:00Z",
+    "valid_to": null,
+    "allowed_tools": [
+      "tl_vector_search",
+      "tl_send_email",
+      "tl_summarize",
+      "tl_sql_query"
+    ],
+    "network": {
+      "egress_allowlist": [
+        "api.kestrel.ai",
+        "mail.kestrel.ai"
+      ],
+      "denied_ports": [
+        22,
+        445
+      ],
+      "max_egress_mb": 10
+    },
+    "filesystem": {
+      "read_scope": [
+        "/workspace"
+      ],
+      "write_scope": []
+    },
+    "resources": {
+      "max_runtime_s": 300,
+      "max_memory_mb": 512
+    },
+    "escalation_allowed": false
+  },
+  {
+    "sandbox_profile_id": "sp_ops_elevated",
+    "policy_version": 3,
+    "valid_from": "2025-12-01T00:00:00Z",
+    "valid_to": "2026-02-15T00:00:00Z",
+    "allowed_tools": [
+      "tl_shell_exec",
+      "tl_sql_query",
+      "tl_file_write"
+    ],
+    "network": {
+      "egress_allowlist": [
+        "api.kestrel.ai",
+        "*.status.kestrel.ai"
+      ],
+      "denied_ports": [
+        23
+      ],
+      "max_egress_mb": 100
+    },
+    "filesystem": {
+      "read_scope": [
+        "/workspace",
+        "/etc/runbooks"
+      ],
+      "write_scope": [
+        "/workspace/out"
+      ]
+    },
+    "resources": {
+      "max_runtime_s": 1800,
+      "max_memory_mb": 4096
+    },
+    "escalation_allowed": true
+  },
+  {
+    "sandbox_profile_id": "sp_ops_elevated",
+    "policy_version": 4,
+    "valid_from": "2026-02-15T00:00:00Z",
+    "valid_to": null,
+    "allowed_tools": [
+      "tl_shell_exec",
+      "tl_sql_query",
+      "tl_file_write",
+      "tl_web_fetch"
+    ],
+    "filesystem": {
+      "read_scope": [
+        "/workspace",
+        "/etc/runbooks"
+      ],
+      "write_scope": [
+        "/workspace/out"
+      ]
+    },
+    "resources": {
+      "max_runtime_s": 1800,
+      "max_memory_mb": 4096
+    },
+    "escalation_allowed": true
+  },
+  {
+    "sandbox_profile_id": "sp_ops_std",
+    "policy_version": 1,
+    "valid_from": "2026-01-01T00:00:00Z",
+    "valid_to": null,
+    "allowed_tools": [
+      "tl_shell_exec",
+      "tl_sql_query",
+      "tl_file_write"
+    ],
+    "network": {
+      "egress_allowlist": [
+        "api.kestrel.ai",
+        "*.status.kestrel.ai"
+      ],
+      "denied_ports": [
+        22,
+        23,
+        445,
+        3389
+      ],
+      "max_egress_mb": 20
+    },
+    "filesystem": {
+      "read_scope": [
+        "/workspace"
+      ],
+      "write_scope": [
+        "/workspace/out"
+      ]
+    },
+    "resources": {
+      "max_runtime_s": 900,
+      "max_memory_mb": 1024
+    },
+    "escalation_allowed": false
+  },
+  {
+    "sandbox_profile_id": "sp_analytics_std",
+    "policy_version": 1,
+    "valid_from": "2026-01-01T00:00:00Z",
+    "valid_to": "2026-03-15T00:00:00Z",
+    "allowed_tools": [
+      "tl_sql_query",
+      "tl_summarize",
+      "tl_file_write"
+    ],
+    "network": {
+      "egress_allowlist": [
+        "api.kestrel.ai",
+        "*.public-data.example"
+      ],
+      "denied_ports": [
+        22,
+        23,
+        445,
+        3389
+      ],
+      "max_egress_mb": 50
+    },
+    "filesystem": {
+      "read_scope": [
+        "/workspace"
+      ],
+      "write_scope": [
+        "/workspace/out"
+      ]
+    },
+    "resources": {
+      "max_runtime_s": 1200,
+      "max_memory_mb": 4096
+    },
+    "escalation_allowed": false
+  },
+  {
+    "sandbox_profile_id": "sp_analytics_std",
+    "policy_version": 2,
+    "valid_from": "2026-03-15T00:00:00Z",
+    "valid_to": null,
+    "allowed_tools": [
+      "tl_sql_query",
+      "tl_summarize",
+      "tl_file_write",
+      "tl_code_exec"
+    ],
+    "network": {
+      "egress_allowlist": [
+        "api.kestrel.ai",
+        "*.public-data.example"
+      ],
+      "denied_ports": [
+        22,
+        23,
+        445,
+        3389
+      ],
+      "max_egress_mb": 50
+    },
+    "filesystem": {
+      "read_scope": [
+        "/workspace"
+      ],
+      "write_scope": [
+        "/workspace/out"
+      ]
+    },
+    "resources": {
+      "max_runtime_s": 1200,
+      "max_memory_mb": 4096
+    },
+    "escalation_allowed": false
+  },
+  {
+    "sandbox_profile_id": "sp_coding_std",
+    "policy_version": 1,
+    "valid_from": "2026-01-01T00:00:00Z",
+    "valid_to": null,
+    "allowed_tools": [
+      "tl_code_exec",
+      "tl_file_write",
+      "tl_web_fetch",
+      "tl_vector_search"
+    ],
+    "network": {
+      "egress_allowlist": [
+        "api.kestrel.ai",
+        "*.pkg-mirror.example"
+      ],
+      "denied_ports": [
+        22,
+        23,
+        445,
+        3389
+      ],
+      "max_egress_mb": 200
+    },
+    "filesystem": {
+      "read_scope": [
+        "/workspace"
+      ],
+      "write_scope": [
+        "/workspace"
+      ]
+    },
+    "resources": {
+      "max_runtime_s": 1800,
+      "max_memory_mb": 4096
+    },
+    "escalation_allowed": false
+  }
+]

@@ -1,0 +1,4 @@
+policy,turns_in_denominator,mean_output_tokens_per_turn,total_output_tokens,p50_output_tokens
+null-excluded (declared),403364,239.8,96726648.0,240.0
+zero-filled,407462,237.388,96726648.0,238.0
+turns with null output_tokens,4098,,,

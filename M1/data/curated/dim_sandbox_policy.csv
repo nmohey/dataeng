@@ -1,0 +1,11 @@
+policy_sk,source_file,source_line,sandbox_profile_id,policy_version,valid_from,valid_to,escalation_allowed,max_egress_mb,max_runtime_s,max_memory_mb,has_network_block,valid_from_utc,valid_to_utc,n_allowed_tools,n_egress_allowlist,filesystem_read_scope,filesystem_write_scope
+1,sandbox_policies.json,7,sp_analytics_std,1,2026-01-01T00:00:00Z,2026-03-15T00:00:00Z,False,50.0,1200,4096,True,2026-01-01 00:00:00+00:00,2026-03-15 00:00:00+00:00,3,2,/workspace,/workspace/out
+2,sandbox_policies.json,8,sp_analytics_std,2,2026-03-15T00:00:00Z,,False,50.0,1200,4096,True,2026-03-15 00:00:00+00:00,,4,2,/workspace,/workspace/out
+3,sandbox_policies.json,9,sp_coding_std,1,2026-01-01T00:00:00Z,,False,200.0,1800,4096,True,2026-01-01 00:00:00+00:00,,4,2,/workspace,/workspace
+4,sandbox_policies.json,4,sp_ops_elevated,3,2025-12-01T00:00:00Z,2026-02-15T00:00:00Z,True,100.0,1800,4096,True,2025-12-01 00:00:00+00:00,2026-02-15 00:00:00+00:00,3,2,/workspace|/etc/runbooks,/workspace/out
+5,sandbox_policies.json,5,sp_ops_elevated,4,2026-02-15T00:00:00Z,,True,,1800,4096,False,2026-02-15 00:00:00+00:00,,4,0,/workspace|/etc/runbooks,/workspace/out
+6,sandbox_policies.json,6,sp_ops_std,1,2026-01-01T00:00:00Z,,False,20.0,900,1024,True,2026-01-01 00:00:00+00:00,,3,2,/workspace,/workspace/out
+7,sandbox_policies.json,0,sp_research_std,2,2026-01-01T00:00:00Z,2026-02-01T00:00:00Z,False,25.0,600,1024,True,2026-01-01 00:00:00+00:00,2026-02-01 00:00:00+00:00,2,2,/workspace,/workspace/out
+8,sandbox_policies.json,1,sp_research_std,3,2026-01-25T00:00:00Z,,False,50.0,900,2048,True,2026-01-25 00:00:00+00:00,,3,3,/workspace,/workspace/out
+9,sandbox_policies.json,2,sp_support_std,1,2026-01-01T00:00:00Z,2026-03-01T00:00:00Z,False,10.0,300,512,True,2026-01-01 00:00:00+00:00,2026-03-01 00:00:00+00:00,3,2,/workspace,
+10,sandbox_policies.json,3,sp_support_std,2,2026-03-01T00:00:00Z,,False,10.0,300,512,True,2026-03-01 00:00:00+00:00,,4,2,/workspace,

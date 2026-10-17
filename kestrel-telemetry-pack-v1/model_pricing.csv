@@ -1,0 +1,6 @@
+model_id,model_family,input_price_per_1k,output_price_per_1k,currency,effective_from,effective_to
+mdl_kst_pro_1,kestrel-pro,0.003000,0.015000,USD,2026-01-01T00:00:00Z,
+mdl_kst_pro_1,kestrel-pro,0.002500,0.012000,USD,2026-03-01T00:00:00Z,
+mdl_kst_pro_2,kestrel-pro,0.002000,0.010000,USD,2026-03-01T00:00:00Z,
+mdl_kst_lite_1,kestrel-lite,0.000500,0.001500,USD,2026-01-01T00:00:00Z,
+mdl_kst_nano_1,kestrel-nano,,,USD,2026-02-01T00:00:00Z,

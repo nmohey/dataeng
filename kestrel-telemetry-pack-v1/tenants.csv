@@ -1,0 +1,7 @@
+tenant_id,tenant_name,industry,plan_tier,region,onboarded_at,is_active,security_contact
+tn_001,Zephyr Logistics,logistics,growth,eu-west-1,2025-06-02T09:00:00Z,true,soc@zephyr-logistics.example
+tn_002,Helios Care Group,healthcare,enterprise,us-east-1,2025-03-18T14:30:00Z,true,security@helios-care.example
+tn_003,NILEBANK Ltd.,finance,enterprise,me-south-1,2024-11-11T08:15:00Z,true,ciso@nilebank.example
+tn_004,nilebank,finance,enterprise,me-south-1,2024-11-11T08:15:00Z,true,ciso@nilebank.example
+tn_005,Orion Retail,retail,starter,eu-central-9,2026-01-05T10:00:00Z,true,
+tn_006,Vega Public Works,public_sector,growth,eu-west-1,2025-09-30T11:45:00Z,false,ops@vega-pw.example

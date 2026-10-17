@@ -1,0 +1,218 @@
+{
+  "raw_dir": "/Users/mohamedmahmoud/Downloads/Nada /kestrel-telemetry-pack-v1",
+  "out_dir": "/Users/mohamedmahmoud/Downloads/Nada /M1/data/curated",
+  "seconds": null,
+  "activity_schema_report": {
+    "num_rows": 937752,
+    "num_row_groups": 1,
+    "compression": "ZSTD",
+    "created_by": "parquet-cpp-arrow version 25.0.1",
+    "missing_columns": [],
+    "unexpected_columns": [],
+    "type_mismatches": {},
+    "ok": true
+  },
+  "siem_envelope": {
+    "generated_at": "2026-04-01T02:00:00+02:00",
+    "source": "corp-siem-export-v2",
+    "n_alerts": 3754
+  },
+  "tenant_alias": {
+    "tn_004": "tn_003"
+  },
+  "agent_alias": {
+    "ag_007|v2.3.1": "ag_007|2.3.1"
+  },
+  "tool_alias": {
+    "web_fetch": "tl_web_fetch",
+    "http_get": "tl_web_fetch",
+    "webfetch": "tl_web_fetch",
+    "vector_search": "tl_vector_search",
+    "summarize": "tl_summarize",
+    "sql_query": "tl_sql_query",
+    "shell_exec": "tl_shell_exec",
+    "net_probe": "tl_net_probe",
+    "file_read": "tl_file_read",
+    "file_write": "tl_file_write",
+    "send_email": "tl_send_email",
+    "code_exec": "tl_code_exec",
+    "ticket_lookup": "tl_ticket_lookup",
+    "calendar": "tl_calendar"
+  },
+  "policy_windows": [
+    {
+      "sandbox_profile_id": "sp_analytics_std",
+      "from_version": "1",
+      "to_version": "2",
+      "valid_to": "2026-03-15 00:00:00+00:00",
+      "next_valid_from": "2026-03-15 00:00:00+00:00",
+      "relationship": "contiguous",
+      "overlap_days": "nan"
+    },
+    {
+      "sandbox_profile_id": "sp_ops_elevated",
+      "from_version": "3",
+      "to_version": "4",
+      "valid_to": "2026-02-15 00:00:00+00:00",
+      "next_valid_from": "2026-02-15 00:00:00+00:00",
+      "relationship": "contiguous",
+      "overlap_days": "nan"
+    },
+    {
+      "sandbox_profile_id": "sp_research_std",
+      "from_version": "2",
+      "to_version": "3",
+      "valid_to": "2026-02-01 00:00:00+00:00",
+      "next_valid_from": "2026-01-25 00:00:00+00:00",
+      "relationship": "overlap",
+      "overlap_days": "7.0"
+    },
+    {
+      "sandbox_profile_id": "sp_support_std",
+      "from_version": "1",
+      "to_version": "2",
+      "valid_to": "2026-03-01 00:00:00+00:00",
+      "next_valid_from": "2026-03-01 00:00:00+00:00",
+      "relationship": "contiguous",
+      "overlap_days": "nan"
+    }
+  ],
+  "activity": {
+    "received": 937752,
+    "accepted": 924775,
+    "rejected": 12977,
+    "rejected_by_reason": {
+      "DUPLICATE_EVENT_ID": 7427,
+      "INVALID_NUMERIC_RANGE": 1548,
+      "UNKNOWN_AGENT_ID": 1332,
+      "UNKNOWN_TENANT_ID": 730,
+      "MISSING_REQUIRED_FIELD": 730,
+      "MALFORMED_TIMESTAMP": 708,
+      "INVALID_EVENT_TYPE": 302,
+      "ORPHAN_EVENT": 200
+    },
+    "event_time_formats": {
+      "iso_utc": 922618,
+      "epoch_ms": 14029,
+      "dmy_naive": 392,
+      "invalid_calendar_date": 366,
+      "unparseable": 347
+    },
+    "repairs": {
+      "release_version_alias": 2311,
+      "tenant_alias": 0,
+      "tool_name_resolved_to_id": 972,
+      "status_spelling_normalised": 160,
+      "event_time_epoch_ms": 13853,
+      "event_time_dd_mm_yyyy_naive": 387,
+      "late_event": 13865,
+      "negative_lateness": 0,
+      "missing_output_tokens": 4098,
+      "finished_before_event_time": 1603,
+      "latency_disagrees_with_finished_at": 1760,
+      "status_conflicts_with_error_class": 17
+    },
+    "late_accepted": 13865,
+    "sessions_with_sequence_gap": 4115
+  },
+  "flows": {
+    "received": 42392,
+    "accepted": 42308,
+    "rejected": 84,
+    "rejected_by_reason": {
+      "ORPHAN_EVENT": 84
+    },
+    "flow_time_formats": {
+      "iso_utc": 42392
+    },
+    "flags": {
+      "dst_host_missing_ip_only_flow": 3507,
+      "geo_country_missing": 2084,
+      "instance_differs_from_activity": 0
+    }
+  },
+  "audit": {
+    "received": 184005,
+    "header_unparseable": 0,
+    "accepted": 183477,
+    "rejected": 528,
+    "rejected_by_reason": {
+      "UNPARSEABLE_RECORD": 524,
+      "DUPLICATE_EVENT_ID": 4
+    },
+    "flags": {
+      "policy_version_missing_in_log": 2446,
+      "host_offset_defaulted": 0,
+      "instance_differs_from_activity": 0,
+      "escalation_attempt": 877
+    },
+    "hosts": 42,
+    "hosts_defaulted": 0
+  },
+  "siem": {
+    "received": 3754,
+    "accepted": 3754,
+    "rejected": 0,
+    "rejected_by_reason": {},
+    "detected_at_offsets_by_source_system": {
+      "+02:00": {
+        "cloud-ids": 0,
+        "corp-siem": 1912,
+        "egress-proxy": 0
+      },
+      "+03:00": {
+        "cloud-ids": 0,
+        "corp-siem": 0,
+        "egress-proxy": 591
+      },
+      "-05:00": {
+        "cloud-ids": 1251,
+        "corp-siem": 0,
+        "egress-proxy": 0
+      }
+    }
+  },
+  "correlation": {
+    "tolerance_s": 60.0,
+    "alerts": 3754,
+    "matched": 2409,
+    "ambiguous": 27,
+    "ambiguous_but_single_session": 26,
+    "unmatched": 1318,
+    "unmatched_by_reason": {
+      "source_ip_not_a_sandbox": 1251,
+      "nearest_flow_beyond_tolerance": 67
+    },
+    "alerts_with_a_session": 2435,
+    "distinct_sessions_with_alerts": 1206,
+    "flows_matched_by_more_than_one_alert": 243,
+    "alert_after_flow_share": 0.9987546699875467
+  },
+  "canonical_rows": 1154314,
+  "canonical_by_type": {
+    "prompt_turn": 407462,
+    "tool_call": 319361,
+    "lifecycle": 197952,
+    "sandbox_decision": 183477,
+    "network_flow": 42308,
+    "siem_alert": 3754
+  },
+  "rejects": 13590,
+  "rejects_by_reason": {
+    "DUPLICATE_EVENT_ID": 7432,
+    "INVALID_NUMERIC_RANGE": 1548,
+    "UNKNOWN_AGENT_ID": 1332,
+    "UNKNOWN_TENANT_ID": 730,
+    "MISSING_REQUIRED_FIELD": 730,
+    "MALFORMED_TIMESTAMP": 708,
+    "UNPARSEABLE_RECORD": 524,
+    "INVALID_EVENT_TYPE": 302,
+    "ORPHAN_EVENT": 284
+  },
+  "rejects_by_file": {
+    "agent_activity.parquet": 12977,
+    "sandbox_audit.log": 528,
+    "network_flows.csv": 84,
+    "tools.csv": 1
+  }
+}

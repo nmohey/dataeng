@@ -1,0 +1,78 @@
+# Kestrel Milestone 1 stack.
+#
+#   docker compose up -d                 postgres + adminer, then the pipeline runs once:
+#                                        it reads ../kestrel-telemetry-pack-v1, writes
+#                                        data/curated/ and loads the tables into Postgres
+#   docker compose ps                    postgres should say "healthy"; pipeline exits 0 when done
+#   docker compose logs -f pipeline      watch the run (about one minute)
+#   http://localhost:8080                Adminer: server postgres, kestrel / kestrel, db kestrel
+#   docker compose run --rm pipeline     re-run the pipeline by hand
+#   docker compose --profile notebook up -d   optional: Jupyter at http://localhost:8888
+#
+# The notebooks can also run on your laptop against the published ports (see README).
+
+name: kestrel_m1
+
+services:
+  postgres:
+    image: postgres:17
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-kestrel}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-kestrel}
+      POSTGRES_DB: ${POSTGRES_DB:-kestrel}
+    ports:
+      - '${POSTGRES_PORT:-5433}:5432'
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U ${POSTGRES_USER:-kestrel} -d ${POSTGRES_DB:-kestrel}']
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  adminer:
+    image: adminer:5
+    ports:
+      - '${ADMINER_PORT:-8080}:8080'
+    environment:
+      ADMINER_DEFAULT_SERVER: postgres
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  # One-off job, not a server: runs the whole Milestone-1 pipeline and loads Postgres.
+  pipeline:
+    build:
+      context: .
+    environment:
+      DATABASE_URL: postgresql+psycopg://${POSTGRES_USER:-kestrel}:${POSTGRES_PASSWORD:-kestrel}@postgres:5432/${POSTGRES_DB:-kestrel}
+      KESTREL_RAW_DIR: /data/raw
+      KESTREL_OUT_DIR: /data/curated
+    volumes:
+      - ${RAW_DIR:-../kestrel-telemetry-pack-v1}:/data/raw:ro
+      - ./data/curated:/data/curated
+    depends_on:
+      postgres:
+        condition: service_healthy
+    restart: 'no'
+
+  # Optional: the notebooks as a container (off by default; enable with --profile notebook).
+  notebook:
+    image: quay.io/jupyter/scipy-notebook:python-3.12
+    profiles: ['notebook']
+    command: bash -c "pip install --quiet 'psycopg[binary]' tabulate && start-notebook.py --IdentityProvider.token=''"
+    ports:
+      - '127.0.0.1:${JUPYTER_PORT:-8888}:8888'
+    environment:
+      DATABASE_URL: postgresql+psycopg://${POSTGRES_USER:-kestrel}:${POSTGRES_PASSWORD:-kestrel}@postgres:5432/${POSTGRES_DB:-kestrel}
+      KESTREL_RAW_DIR: /data/raw
+      KESTREL_OUT_DIR: /home/jovyan/work/data/curated
+    volumes:
+      - ./:/home/jovyan/work
+      - ${RAW_DIR:-../kestrel-telemetry-pack-v1}:/data/raw:ro
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+volumes:
+  pgdata:

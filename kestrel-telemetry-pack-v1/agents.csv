@@ -1,0 +1,23 @@
+agent_id,release_version,agent_name,agent_type,model_id,tenant_id,sandbox_profile_id,owner_team,autonomy_level,max_tool_calls_per_session,launch_date,is_deprecated
+ag_004,3.0.1,ops-runbook-agent,ops,mdl_kst_pro_1,tn_001,sp_ops_elevated,sre,autonomous,60,2025-08-14,true
+ag_004,3.0.2,ops-runbook-agent,ops,mdl_kst_pro_1,tn_001,sp_ops_elevated,sre,autonomous,60,2026-02-20,false
+ag_001,1.0.0,route-optimizer-agent,analytics,mdl_kst_lite_1,tn_001,sp_analytics_std,fleet-ops,semi_autonomous,30,2025-10-01,false
+ag_002,2.1.0,support-desk-agent,support,mdl_kst_lite_1,tn_001,sp_support_std,cx-platform,supervised,10,2025-11-01,true
+ag_002,2.2.0,support-desk-agent,support,mdl_kst_lite_1,tn_001,sp_support_std,cx-platform,supervised,10,2026-02-25,false
+ag_003,0.5.0,code-review-agent,coding,mdl_kst_pro_1,tn_001,sp_coding_std,dev-platform,semi_autonomous,40,2025-12-01,true
+ag_003,0.6.0,code-review-agent,coding,mdl_kst_pro_2,tn_001,sp_coding_std,dev-platform,semi_autonomous,40,2026-03-05,false
+ag_019,0.9.0,claims-analytics-agent,analytics,mdl_kst_pro_1,tn_002,sp_missing_profile,data-science,semi_autonomous,30,2026-01-10,false
+ag_020,1.0.0,patient-faq-agent,support,mdl_kst_lite_1,tn_002,sp_support_std,patient-services,supervised,10,2025-09-01,true
+ag_020,1.1.0,patient-faq-agent,support,mdl_kst_lite_1,tn_002,sp_support_std,patient-services,supervised,10,2026-03-10,false
+ag_021,1.2.0,literature-research-agent,research,mdl_kst_pro_1,tn_002,sp_research_std,clinical-research,semi_autonomous,25,2025-12-15,false
+ag_007,2.2.0,market-research-agent,research,mdl_kst_lite_1,tn_003,sp_research_std,growth-intel,semi_autonomous,25,2025-12-01,true
+ag_007,2.3.1,market-research-agent,research,mdl_kst_pro_1,tn_003,sp_research_std,growth-intel,semi_autonomous,25,2026-02-10,false
+ag_011,1.4.0,ticket-triage-agent,support,mdl_kst_lite_1,tn_003,sp_support_std,cx-platform,supervised,10,2026-01-20,false
+ag_012,3.1.0,fraud-query-agent,analytics,mdl_kst_pro_1,tn_003,sp_analytics_std,fraud-ops,supervised,20,2025-10-10,true
+ag_012,3.2.0,fraud-query-agent,analytics,mdl_kst_pro_2,tn_003,sp_analytics_std,fraud-ops,supervised,20,2026-03-08,false
+ag_008,1.0.0,board-report-agent,analytics,mdl_kst_nano_1,tn_003,sp_analytics_std,finance-office,supervised,15,2025-11-20,false
+ag_030,1.0.0,merch-research-agent,research,mdl_kst_lite_1,tn_005,sp_research_std,merchandising,semi_autonomous,20,2025-12-20,true
+ag_030,1.1.0,merch-research-agent,research,mdl_kst_lite_1,tn_005,sp_research_std,merchandising,semi_autonomous,20,2026-03-01,false
+ag_031,0.3.0,store-ops-agent,ops,mdl_kst_nano_1,tn_005,sp_ops_std,store-it,autonomous,40,2026-01-05,false
+ag_040,1.0.0,permit-triage-agent,support,mdl_kst_lite_1,tn_006,sp_support_std,citizen-services,supervised,10,2025-09-30,false
+ag_007,v2.3.1,Market Research Agent,research,mdl_kst_pro_1,tn_003,sp_research_std,growth-intel,autonomous,25,2026-02-10,false
