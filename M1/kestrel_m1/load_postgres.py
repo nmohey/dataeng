@@ -24,21 +24,31 @@ TABLES_CSV = {
 }
 
 
-def load(curated_dir: Path | None = None, database_url: str | None = None, chunksize: int = 50_000) -> dict[str, int]:
+#: PostgreSQL accepts at most 65,535 bound parameters per statement; a multi-row INSERT
+#: binds rows x columns of them, so the batch size is derived from the column count.
+PG_MAX_PARAMS = 65_535
+
+
+def rows_per_batch(n_columns: int, max_params: int = PG_MAX_PARAMS) -> int:
+    return max(1, (max_params - 1) // max(1, n_columns))
+
+
+def load(curated_dir: Path | None = None, database_url: str | None = None) -> dict[str, int]:
     curated_dir = Path(curated_dir) if curated_dir else resolve_out_dir()
     url = database_url or os.environ.get("DATABASE_URL", "postgresql+psycopg://kestrel:kestrel@localhost:5433/kestrel")
     engine = create_engine(url)
     counts: dict[str, int] = {}
     for table, fname in TABLES_CSV.items():
         df = pd.read_csv(curated_dir / fname)
-        df.to_sql(table, engine, if_exists="replace", index=False)
+        df.to_sql(table, engine, if_exists="replace", index=False, chunksize=rows_per_batch(df.shape[1]), method="multi")
         counts[table] = len(df)
         print(f"loaded {table}: {len(df):,} rows", flush=True)
     for table, fname in {"fact_rejected_record": "rejects.parquet", "canonical_activity": "canonical_activity.parquet"}.items():
         df = pd.read_parquet(curated_dir / fname)
-        df.to_sql(table, engine, if_exists="replace", index=False, chunksize=chunksize, method="multi")
+        batch = rows_per_batch(df.shape[1])
+        df.to_sql(table, engine, if_exists="replace", index=False, chunksize=batch, method="multi")
         counts[table] = len(df)
-        print(f"loaded {table}: {len(df):,} rows", flush=True)
+        print(f"loaded {table}: {len(df):,} rows ({batch} rows per INSERT)", flush=True)
     with engine.begin() as conn:
         conn.execute(text("CREATE INDEX IF NOT EXISTS ix_canonical_session ON canonical_activity (session_id)"))
         conn.execute(text("CREATE INDEX IF NOT EXISTS ix_canonical_time ON canonical_activity (event_time_utc)"))

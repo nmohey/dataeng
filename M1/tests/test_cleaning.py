@@ -88,3 +88,10 @@ def test_clean_activity_rules():
     assert fixed["release_version"] == "1.0.0" and fixed["tool_id"] == "tl_x" and fixed["status"] == "success"
     assert {"release_version_alias", "tool_name_resolved_to_id", "status_spelling_normalised"} <= set(fixed["quality_flags"].split("|"))
     assert (rej["source_line"] > 0).all() and rej["raw_payload"].str.contains("event_id").all()
+
+
+def test_postgres_batch_size_stays_under_parameter_limit():
+    from kestrel_m1.load_postgres import rows_per_batch, PG_MAX_PARAMS
+    for ncols in (1, 7, 11, 47, 100):
+        assert rows_per_batch(ncols) * ncols < PG_MAX_PARAMS
+    assert rows_per_batch(47) == 1394

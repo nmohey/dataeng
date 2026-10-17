@@ -72,7 +72,7 @@ cd M1
 python3 -m venv .venv && source .venv/bin/activate      # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 python -m kestrel_m1.pipeline                           # ~1 minute; writes data/curated/
-pytest -q tests                                         # 12 unit tests
+pytest -q tests                                         # 13 unit tests
 ```
 
 To load the curated tables into a Postgres you started with `docker compose up -d postgres adminer`:
